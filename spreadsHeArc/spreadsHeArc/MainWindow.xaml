@@ -1,0 +1,38 @@
+﻿<Window x:Class="spreadsHeArc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:spreadsHeArc"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="72">
+            Hello, WPF!
+        </TextBlock>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_New" />
+                    <MenuItem Header="_Open" />
+                    <MenuItem Header="_Save" />
+                    <Separator />
+                    <MenuItem Header="_Exit" />
+                </MenuItem>
+                <MenuItem Header="_Branches">
+                    <MenuItem Header="_Modifier une branche" />
+                    <MenuItem Header="_Ajouter branche" />
+                    <MenuItem Header="_Supprimer branche" />
+                    <MenuItem Header="_Renommer branche" />
+                </MenuItem>
+                <MenuItem Header="Modules">
+                    <MenuItem Header="Modifier un module" />
+                    <MenuItem Header="Ajouter module" />
+                    <MenuItem Header="Supprimer module" />
+                    <MenuItem Header="Renommer module" />
+                </MenuItem>
+            </Menu>
+            <TextBox AcceptsReturn="True" />
+        </DockPanel>
+    </Grid>
+</Window>
