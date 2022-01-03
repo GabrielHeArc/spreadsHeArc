@@ -7,6 +7,8 @@ namespace spreadsHeArc
         public string name;
         public string weight;
         public float average;
+        private Dictionary<float, int> DictRating = new Dictionary<float, int>();
+
 
         public Branch(string name, string weight)
         {
@@ -14,7 +16,5 @@ namespace spreadsHeArc
             this.weight = weight;
         }
         string Name { get; set; }
-        private Dictionary<float, int> DictRating = new Dictionary<float, int>();
-        
     }
 }

@@ -58,19 +58,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModel\BranchViewModel.cs" />
-    <Page Include="AddBranch.xaml">
+    <Page Include="View\Branch\AddBranchWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddModuleWindow.xaml">
+    <Page Include="View\Module\AddModuleWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EditBranchWindow.xaml">
+    <Page Include="View\Branch\EditBranchWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EditModuleWindow.xaml">
+    <Page Include="View\Module\EditModuleWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -78,21 +78,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AddBranch.xaml.cs">
-      <DependentUpon>AddBranch.xaml</DependentUpon>
+    <Compile Include="ViewModel\GridViewModel.cs" />
+    <Compile Include="ViewModel\ModuleViewModel.cs" />
+    <Compile Include="View\Branch\AddBranchWindow.xaml.cs">
+      <DependentUpon>AddBranchWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddModuleWindow.xaml.cs">
+    <Compile Include="View\Module\AddModuleWindow.xaml.cs">
       <DependentUpon>AddModuleWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Branch.cs" />
-    <Compile Include="EditBranchWindow.xaml.cs">
+    <Compile Include="Model\Branch.cs" />
+    <Compile Include="View\Branch\EditBranchWindow.xaml.cs">
       <DependentUpon>EditBranchWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EditModuleWindow.xaml.cs">
+    <Compile Include="View\Module\EditModuleWindow.xaml.cs">
       <DependentUpon>EditModuleWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Grid.cs" />
@@ -102,7 +104,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Module.cs" />
+    <Compile Include="Model\Module.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -128,9 +130,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="View\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -16,36 +16,36 @@ using System.Windows.Shapes;
 namespace spreadsHeArc
 {
     /// <summary>
-    /// Logique d'interaction pour AddBranch.xaml
+    /// Logique d'interaction pour AddModuleWindow.xaml
     /// </summary>
-    public partial class AddBranchWindow : Window
-    {       
-        private BranchViewModel branchViewModel;
-        private string NewBranchName
+    public partial class AddModuleWindow : Window
+    {
+        private ModuleViewModel moduleViewModel;
+        private string NewModuleName
         {
             get;
             set;
         }
 
-        public string NewBranchWeight
+        public string NewModuleWeight
         {
             get;
             set;
         }
-
-        public AddBranchWindow()
+        public AddModuleWindow()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
-            NewBranchName = new_branch_name_text_box.Text;
-            NewBranchWeight = new_branch_weight_text_box.Text;
+            NewModuleName = new_module_name_text_box.Text;
+            NewModuleWeight = new_module_weight_text_box.Text;
             //MessageBox.Show(NewBranchName);
             //MessageBox.Show(NewBranchWeight);
-            BranchViewModel.getInstance().AddBranch(NewBranchName, NewBranchWeight);
-            this.DataContext = branchViewModel;
+            ModuleViewModel moduleViewModel = ModuleViewModel.getInstance();
+            moduleViewModel.AddBranch(NewModuleName, NewModuleWeight);
+            this.DataContext = moduleViewModel;
         }
     }
 }

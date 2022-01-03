@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace spreadsHeArc
+namespace spreadsHeArc.ViewModel
 {
-    public class Grid
+    internal class GridViewModel
     {
 
     }
