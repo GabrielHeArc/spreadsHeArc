@@ -4,32 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Collections.ObjectModel;
 
 namespace spreadsHeArc.ViewModel
 {
     sealed class ModuleViewModel
-    {
-        List<Module> ListModule;
+    {                
         private ModuleViewModel()
         {
-            ListModule = new List<Module>();
+            ListModules = new ObservableCollection<Module>();
+
+            // ------------- debug ----------
+            
+            
+
+            // ------------- end debug ----------
         }
+
+        public ObservableCollection<Module> ListModules;
+
         private static ModuleViewModel _instance;
 
-
-        public static ModuleViewModel getInstance()
+        public static ModuleViewModel GetInstance()
         {
             if (_instance == null)
                 _instance = new ModuleViewModel();
             return _instance;
         }
 
-        internal void AddBranch(string name, string weight)
+
+        internal void AddModule(string name)
         {
-            ListModule.Add(new Module(name, weight));
-            MessageBox.Show(ListModule.Count.ToString());
-            MessageBox.Show(ListModule.ToString());
-            Console.WriteLine(ListModule.ToString());
-        }
+            ListModules.Add(new Module(name));            
+        }        
     }
 }

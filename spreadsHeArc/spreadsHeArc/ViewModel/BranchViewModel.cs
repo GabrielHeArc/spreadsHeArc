@@ -9,7 +9,7 @@ namespace spreadsHeArc.ViewModel
 {
     public sealed class BranchViewModel
     {
-        List<Branch> ListBranches;
+        public List<Branch> ListBranches;
         private BranchViewModel()
         {
             ListBranches = new List<Branch>();
@@ -24,12 +24,19 @@ namespace spreadsHeArc.ViewModel
             return _instance;
         }
         
-        internal void AddBranch(string name, string weight)
+        internal void AddBranch(string name, int weight, Module module)
         {
-            ListBranches.Add(new Branch(name, weight));
-            MessageBox.Show(ListBranches.Count.ToString());
-            MessageBox.Show(ListBranches.ToString());
-            Console.WriteLine(ListBranches.ToString());
+            Branch newBranch = new Branch(name, weight);
+            ListBranches.Add(newBranch);
+            try
+            {
+                module.DictBranch.Add(newBranch, weight);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur : Aucun module n'est renseigné.");
+                MessageBox.Show("Les modifications n'ont pas été enregistrées.");
+            }
         }        
     }
 }

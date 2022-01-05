@@ -20,32 +20,25 @@ namespace spreadsHeArc
     /// </summary>
     public partial class AddModuleWindow : Window
     {
-        private ModuleViewModel moduleViewModel;
+        //private ModuleViewModel moduleViewModel;
         private string NewModuleName
         {
             get;
             set;
         }
-
-        public string NewModuleWeight
-        {
-            get;
-            set;
-        }
+        
         public AddModuleWindow()
         {
             InitializeComponent();
         }
 
-        private void okButton_Click(object sender, RoutedEventArgs e)
+        private void OkButton_Click(object sender, RoutedEventArgs e)
         {
             NewModuleName = new_module_name_text_box.Text;
-            NewModuleWeight = new_module_weight_text_box.Text;
-            //MessageBox.Show(NewBranchName);
-            //MessageBox.Show(NewBranchWeight);
-            ModuleViewModel moduleViewModel = ModuleViewModel.getInstance();
-            moduleViewModel.AddBranch(NewModuleName, NewModuleWeight);
-            this.DataContext = moduleViewModel;
+
+            ModuleViewModel moduleViewModel = ModuleViewModel.GetInstance();
+            moduleViewModel.AddModule(NewModuleName);            
+            this.DialogResult = true;
         }
     }
 }

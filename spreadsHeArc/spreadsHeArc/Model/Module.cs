@@ -8,17 +8,21 @@ namespace spreadsHeArc
 {
     public class Module
     {
-        string Name;
-        int Weight;
-        private string weight;
-        float average;
-
-        Dictionary<Branch, int> DictBranch = new Dictionary<Branch, int>();
-
-        public Module(string name, string weight)
+        private string _nameModule;
+        public string NameModule
         {
-            Name = name;
-            this.weight = weight;
+            get => _nameModule;
+            set => _nameModule = value;
+        }
+
+        /// <summary>
+        /// Nom de la branche et pondération dans le module
+        /// </summary>
+        public Dictionary<Branch, int> DictBranch = new Dictionary<Branch, int>();
+
+        public Module(string name)
+        {
+           this.NameModule = name;
         }
     }
 }

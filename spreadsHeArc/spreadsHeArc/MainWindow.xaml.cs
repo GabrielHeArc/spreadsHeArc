@@ -23,9 +23,6 @@ namespace spreadsHeArc
         public MainWindow()
         {
             InitializeComponent();
-            Console.WriteLine("TEST");
-
-
         }
 
         private void MenuItem_Click_Add_Module(object sender, RoutedEventArgs e)

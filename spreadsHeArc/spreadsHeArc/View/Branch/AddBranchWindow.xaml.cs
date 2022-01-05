@@ -20,33 +20,55 @@ namespace spreadsHeArc
     /// </summary>
     public partial class AddBranchWindow : Window
     {       
-        private BranchViewModel branchViewModel;
         private string NewBranchName
         {
             get;
             set;
         }
 
-        public string NewBranchWeight
+        public int NewBranchWeight
         {
             get;
             set;
         }
 
+        public Module Module
+        {
+            get;
+
+            set;
+        }
+
         public AddBranchWindow()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            ModuleViewModel module = ModuleViewModel.GetInstance();            
+
+            list_modules.ItemsSource = module.ListModules;
+            list_modules.DisplayMemberPath = "NameModule";
+            list_modules.SelectedIndex = 0;            
         }
 
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
             NewBranchName = new_branch_name_text_box.Text;
-            NewBranchWeight = new_branch_weight_text_box.Text;
-            //MessageBox.Show(NewBranchName);
-            //MessageBox.Show(NewBranchWeight);
+            try
+            {
+                NewBranchWeight = int.Parse(new_branch_weight_text_box.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             BranchViewModel branchViewModel = BranchViewModel.getInstance();
-            branchViewModel.AddBranch(NewBranchName, NewBranchWeight);
-            this.DataContext = branchViewModel;
+            branchViewModel.AddBranch(NewBranchName, NewBranchWeight, Module);
+
+            this.DialogResult = true;
+        }
+
+        private void list_modules_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Module = (sender as ComboBox).SelectedItem as Module;            
         }
     }
 }
