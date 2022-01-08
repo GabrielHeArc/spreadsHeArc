@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace spreadsHeArc
+namespace spreadsHeArc.View.Module
 {
     /// <summary>
     /// Logique d'interaction pour AddModuleWindow.xaml
@@ -39,6 +39,8 @@ namespace spreadsHeArc
             ModuleViewModel moduleViewModel = ModuleViewModel.GetInstance();
             moduleViewModel.AddModule(NewModuleName);            
             this.DialogResult = true;
+            GridViewModel gridViewModel = new GridViewModel();
+            gridViewModel.show();
         }
     }
 }

@@ -58,19 +58,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModel\BranchViewModel.cs" />
-    <Page Include="View\Branch\AddBranchWindow.xaml">
+    <Page Include="View\AddBranchWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Module\AddModuleWindow.xaml">
+    <Page Include="View\AddRateWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Branch\EditBranchWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Module\EditModuleWindow.xaml">
+    <Page Include="View\AddModuleWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -80,10 +76,14 @@
     </Page>
     <Compile Include="ViewModel\GridViewModel.cs" />
     <Compile Include="ViewModel\ModuleViewModel.cs" />
-    <Compile Include="View\Branch\AddBranchWindow.xaml.cs">
+    <Compile Include="ViewModel\ViewModel.cs" />
+    <Compile Include="View\AddBranchWindow.xaml.cs">
       <DependentUpon>AddBranchWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Module\AddModuleWindow.xaml.cs">
+    <Compile Include="View\AddRateWindow.xaml.cs">
+      <DependentUpon>AddRateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddModuleWindow.xaml.cs">
       <DependentUpon>AddModuleWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
@@ -91,12 +91,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\Branch.cs" />
-    <Compile Include="View\Branch\EditBranchWindow.xaml.cs">
-      <DependentUpon>EditBranchWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Module\EditModuleWindow.xaml.cs">
-      <DependentUpon>EditModuleWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Grid.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

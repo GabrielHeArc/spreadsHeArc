@@ -5,23 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using spreadsHeArc.Model;
 
 namespace spreadsHeArc.ViewModel
 {
-    sealed class ModuleViewModel
+    public class ModuleViewModel : ViewModel
     {                
         private ModuleViewModel()
         {
             ListModules = new ObservableCollection<Module>();
-
-            // ------------- debug ----------
-            
-            
-
-            // ------------- end debug ----------
         }
 
-        public ObservableCollection<Module> ListModules;
+        private ObservableCollection<Module> _listModules;
+
+        public ObservableCollection<Module> ListModules
+        {
+            get => _listModules;
+            set
+            {
+                _listModules = value;
+                RaisePropertyChanged("ListeModule");
+            }
+        }
 
         private static ModuleViewModel _instance;
 
