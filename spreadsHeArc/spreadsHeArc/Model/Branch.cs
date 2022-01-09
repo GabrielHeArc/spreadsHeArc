@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.ComponentModel;
+using spreadsHeArc.Utils;
 
 namespace spreadsHeArc.Model
 {
@@ -29,9 +30,10 @@ namespace spreadsHeArc.Model
             }
         }
 
-        private Dictionary<float, int> _dictRating = new Dictionary<float, int>();
+        //private Dictionary<int, List<float>> _dictRating = new Dictionary<int, List<float>>();
+        private MultiMap<float> _dictRating = new MultiMap<float>();
 
-        public Dictionary<float, int> DictRating
+        public MultiMap<float> DictRating
         {
             get => _dictRating;
             set
@@ -46,15 +48,15 @@ namespace spreadsHeArc.Model
             this.NameBranch = name;
             this.Weight = weight;
 
-            DictRating.Add(4, 1);
-            DictRating.Add(5, 2);
+            //DictRating.Add(4, 1);
+            //DictRating.Add(5, 2);
         }
 
-        public void AddRate(float rate, int weight)
+        /*public void AddRate(float rate, int weight)
         {
-            DictRating.Add(rate, weight);
+            //DictRating.TryGetValue(rate)
             //RaisePropertyChanged("DictRating");
-        }
+        }*/
 
         /*private void RaisePropertyChanged(string property)
         {

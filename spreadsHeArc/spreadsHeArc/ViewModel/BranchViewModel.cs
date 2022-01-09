@@ -40,13 +40,13 @@ namespace spreadsHeArc.ViewModel
             }
         }        
         
-        public void AddRate(Branch branch, float rate, int weight)
+        public void AddRate(Branch branch, float rate, float weight)
         {
             branch.DictRating.Add(rate, weight);
             RaisePropertyChanged("DictRating");
             MessageBox.Show("RAISE PROPERTY CHANGED RATE");
             
-            foreach(var item in branch.DictRating)
+            foreach(var item in branch.DictRating.Keys)
                 MessageBox.Show(item.ToString());
         }
     }

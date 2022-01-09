@@ -10,7 +10,7 @@
         MinWidth="300"
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize"
-        ShowInTaskbar="False"
+        ShowInTaskbar="True"
         WindowStartupLocation="CenterOwner">
     <Grid ShowGridLines="False">
         <Grid.ColumnDefinitions>
@@ -27,10 +27,10 @@
         <ComboBox Grid.Row="0" Grid.Column="1" Height="23" Width="120" Name="list_branches" SelectionChanged="list_branches_SelectionChanged"/>
 
         <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Note :" />
-        <TextBox Grid.Row="1" Grid.Column="1" Name="new_rate_text_box" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Text="My text"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Name="new_rate_text_box" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Text="5.5"/>
 
         <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Poids de la note :" />
-        <TextBox Grid.Row="2" Grid.Column="1" Name="new_rate_weight_text_box" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Text="My text"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Name="new_rate_weight_text_box" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Text="6"/>
         
 
         <Button Grid.Row="3" Grid.Column="0" Margin="10,10,10,10" Name="cancelButton" IsCancel="True" Width="75" Height="20">Cancel</Button>
