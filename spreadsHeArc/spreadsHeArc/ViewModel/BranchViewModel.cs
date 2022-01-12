@@ -38,16 +38,16 @@ namespace spreadsHeArc.ViewModel
                 MessageBox.Show("Erreur : Aucun module n'est renseigné.");
                 MessageBox.Show("Les modifications n'ont pas été enregistrées.");
             }
-        }        
-        
-        public void AddRate(Branch branch, float rate, float weight)
+        }
+
+        public void AddRate(Branch branch, float rate, int weight)
         {
-            branch.DictRating.Add(rate, weight);
+            branch.DictRating[weight].Add(rate);
             RaisePropertyChanged("DictRating");
             MessageBox.Show("RAISE PROPERTY CHANGED RATE");
-            
-            foreach(var item in branch.DictRating.Keys)
-                MessageBox.Show(item.ToString());
+
+            //foreach(var item in branch.DictRating.Keys)
+              //  MessageBox.Show(item.ToString());
         }
     }
 }

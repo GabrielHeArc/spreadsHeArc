@@ -27,8 +27,8 @@ namespace spreadsHeArc.View.Branch
             set => _newRate = value;
         }
 
-        private float _newRateWeight;
-        public float NewRateWeight
+        private int _newRateWeight;
+        public int NewRateWeight
         {
             get => _newRateWeight;
             set => _newRateWeight = value;
@@ -50,7 +50,7 @@ namespace spreadsHeArc.View.Branch
             try
             {
                 NewRate = float.Parse(new_rate_text_box.Text.Replace('.', ','));
-                NewRateWeight = float.Parse(new_rate_weight_text_box.Text.Replace('.', ','));
+                NewRateWeight = int.Parse(new_rate_weight_text_box.Text.Replace('.', ','));
                 BranchViewModel branchViewModel = BranchViewModel.GetInstance();
                 branchViewModel.AddRate(Branche, NewRate, NewRateWeight);
                 this.DialogResult = true;

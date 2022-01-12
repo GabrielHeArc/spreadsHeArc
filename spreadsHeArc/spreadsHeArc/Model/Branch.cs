@@ -30,10 +30,8 @@ namespace spreadsHeArc.Model
             }
         }
 
-        //private Dictionary<int, List<float>> _dictRating = new Dictionary<int, List<float>>();
-        private MultiMap<float> _dictRating = new MultiMap<float>();
-
-        public MultiMap<float> DictRating
+        private List<float>[] _dictRating = new List<float>[6];
+        public List<float>[] DictRating
         {
             get => _dictRating;
             set
@@ -48,8 +46,8 @@ namespace spreadsHeArc.Model
             this.NameBranch = name;
             this.Weight = weight;
 
-            //DictRating.Add(4, 1);
-            //DictRating.Add(5, 2);
+            DictRating[1].Add(4);
+            DictRating[1].Add(2);
         }
 
         /*public void AddRate(float rate, int weight)
