@@ -8,7 +8,8 @@ namespace spreadsHeArc.Model
     public class Branch //: INotifyPropertyChanged
     {
         private string _nameBranch;
-        public string NameBranch {
+        public string NameBranch
+        {
             get => _nameBranch;
             set => _nameBranch = value;
         }
@@ -24,13 +25,14 @@ namespace spreadsHeArc.Model
         public float Average
         {
             get => _average;
-            set { 
+            set
+            {
                 _average = value;
-                //RaisePropertyChanged("Average");
             }
         }
 
         private List<float>[] _dictRating = new List<float>[6];
+
         public List<float>[] DictRating
         {
             get => _dictRating;
@@ -38,32 +40,16 @@ namespace spreadsHeArc.Model
             {
                 _dictRating = value;
                 //RaisePropertyChanged("DictRating");
-            } 
-        }        
+            }
+        }
 
         public Branch(string name, int weight)
         {
             this.NameBranch = name;
             this.Weight = weight;
 
-            DictRating[1].Add(4);
-            DictRating[1].Add(2);
+            //DictRating.Add(4, 1);
+            //DictRating.Add(5, 2);
         }
-
-        /*public void AddRate(float rate, int weight)
-        {
-            //DictRating.TryGetValue(rate)
-            //RaisePropertyChanged("DictRating");
-        }*/
-
-        /*private void RaisePropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
-        }*/
-
-
     }
 }
