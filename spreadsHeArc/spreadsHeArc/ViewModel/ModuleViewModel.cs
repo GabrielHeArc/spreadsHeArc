@@ -24,8 +24,7 @@ namespace spreadsHeArc.ViewModel
             get => _listModules;
             set
             {
-                _listModules = value;
-                RaisePropertyChanged("ListeModule");
+                _listModules = value;                
             }
         }
 
@@ -39,9 +38,11 @@ namespace spreadsHeArc.ViewModel
         }
 
 
-        internal void AddModule(string name)
+        public void AddModule(string name)
         {
-            ListModules.Add(new Module(name));            
-        }        
+            ListModules.Add(new Module(name));
+        }
+        
+
     }
 }

@@ -11,7 +11,11 @@ namespace spreadsHeArc.ViewModel
 {
     public class BranchViewModel : ViewModel
     {
-        public List<Branch> ListBranches;
+        public List<Branch> ListBranches
+        {
+            get => _listbranches;
+            set => _listbranches = value;
+        }
 
         private List<Branch> _listbranches = new List<Branch>();
         private BranchViewModel()
@@ -29,7 +33,7 @@ namespace spreadsHeArc.ViewModel
         
         public void AddBranch(string name, int weight, Module module)
         {
-            Branch newBranch = new Branch(name, weight);
+            Branch newBranch = new Branch(name, weight, module);
             ListBranches.Add(newBranch);
             try
             {
@@ -42,14 +46,11 @@ namespace spreadsHeArc.ViewModel
             }
         }
 
-        public void AddRate(Branch branch, float rate, int weight)
+        public void AddRate(Branch branch, Rate rate)
         {
-            branch.DictRating[weight].Add(rate);
-            RaisePropertyChanged("DictRating");
-            MessageBox.Show("RAISE PROPERTY CHANGED RATE");
-
-            //foreach(var item in branch.DictRating.Keys)
-              //  MessageBox.Show(item.ToString());
+            branch.ListRate.Add(rate);
+            branch.ProcessAverage();
+            branch.Module.ProcessAverage();
         }
     }
 }

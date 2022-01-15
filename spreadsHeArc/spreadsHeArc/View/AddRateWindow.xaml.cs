@@ -20,7 +20,7 @@ namespace spreadsHeArc.View.Branch
         }
 
         private float _newRate;
-        public float NewRate
+        public float NewMark
         {
             get => _newRate;
             set => _newRate = value;
@@ -48,10 +48,13 @@ namespace spreadsHeArc.View.Branch
         {            
             try
             {
-                NewRate = float.Parse(new_rate_text_box.Text.Replace('.', ','));
+                NewMark = float.Parse(new_rate_text_box.Text.Replace('.', ','));
                 NewRateWeight = int.Parse(new_rate_weight_text_box.Text.Replace('.', ','));
                 BranchViewModel branchViewModel = BranchViewModel.GetInstance();
-                branchViewModel.AddRate(Branche, NewRate, NewRateWeight);
+
+                Rate newRate = new Rate(NewMark, NewRateWeight);
+
+                branchViewModel.AddRate(Branche, newRate);                
                 this.DialogResult = true;
             }
             catch (Exception ex)

@@ -1,10 +1,11 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
-
+using System.Windows;
 
 namespace spreadsHeArc.Model
 {
-    public class Module// : INotifyPropertyChanged
+    public class Module : Model
     {
         private string _nameModule;
         public string NameModule
@@ -18,12 +19,12 @@ namespace spreadsHeArc.Model
         public float Average
         {
             get => _average;
-            set {
-                _average = value;
-                //RaisePropertyChanged("Average");
-            }            
+            set
+            {
+                _average = (float)Math.Round(value, 1);
+                RaisePropertyChanged("Average");
+            }
         }
-
 
         /// <summary>
         /// Nom de la branche et pondération dans le module
@@ -31,28 +32,29 @@ namespace spreadsHeArc.Model
         public ObservableCollection<Branch> ListBranch
         {
             get => _listBranch;
-            set
-            {
-                _listBranch = value;
-                //RaisePropertyChanged("ListBranch");
-            }
+            set => _listBranch = value;
         }   
 
         private ObservableCollection<Branch> _listBranch;
         
-
         public Module(string name)
         {
            this.NameModule = name;
            ListBranch = new ObservableCollection<Branch>();
         }
 
-        /*private void RaisePropertyChanged(string property)
+        public void ProcessAverage()
         {
-            if (PropertyChanged != null)
+            int sumWeight = 0;
+            float sumAverage = 0;
+            foreach (Branch branch in ListBranch)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
+                sumWeight += branch.Weight;
+                sumAverage += branch.Average * branch.Weight;
             }
-        }*/
+
+            Average = sumAverage / sumWeight;
+            //MessageBox.Show("Process average module");
+        }
     }
 }

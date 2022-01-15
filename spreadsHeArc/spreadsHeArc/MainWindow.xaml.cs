@@ -27,10 +27,6 @@ namespace spreadsHeArc
         {                        
             DataContext = ModuleViewModel.GetInstance();
             InitializeComponent();
-
-
-            //gridViewModel.show();
-            //CanvaGrid.Children.Add(new TextBox());
         }
 
         private void MenuItem_Click_Add_Module(object sender, RoutedEventArgs e)
@@ -56,18 +52,8 @@ namespace spreadsHeArc
             //var dialog = new EditBranchWindow();
             //dialog.ShowDialog();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            GridViewModel grid = new GridViewModel();
-            grid.buildGrid();
-        }
+       
         
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void MenuItem_Click_Add_Rate(object sender, RoutedEventArgs e)
         {
             var dialog = new AddRateWindow();

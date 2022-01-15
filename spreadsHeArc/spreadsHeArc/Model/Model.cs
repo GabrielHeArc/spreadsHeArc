@@ -6,18 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace spreadsHeArc.ViewModel
+namespace spreadsHeArc.Model
 {
-    public class ViewModel : INotifyPropertyChanged
+    public class Model : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void RaisePropertyChanged(string property)
         {
-           if (PropertyChanged != null)
-           {
+            if (PropertyChanged != null)
+            {
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
-           }
+                //MessageBox.Show("PROPERTY CHANGED");
+            }
         }
     }
 }

@@ -56,10 +56,7 @@ namespace spreadsHeArc.View.Branch
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show("TEST 1");
                 MessageBox.Show(ex.Message);
-                MessageBox.Show("Test 2");
             }            
         }
 

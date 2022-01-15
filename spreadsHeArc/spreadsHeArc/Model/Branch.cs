@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using spreadsHeArc.Utils;
 using System.Windows;
+using System;
 
 namespace spreadsHeArc.Model
 {
-    public class Branch //: INotifyPropertyChanged
+    public class Branch : Model
     {
         private string _nameBranch;
         public string NameBranch
@@ -28,54 +29,49 @@ namespace spreadsHeArc.Model
             get => _average;
             set
             {
-                _average = value;
+                _average = (float)Math.Round(value, 2);
+                RaisePropertyChanged("Average");
             }
         }
 
-        private List<float>[] _dictRating = new List<float>[11];
-        public List<float>[] DictRating
+        private Module _module;
+
+        public Module Module
         {
-            get => _dictRating;
+            get => _module;
+            set => _module = value;
+        }
+
+        private ObservableCollection<Rate> _listRate = new ObservableCollection<Rate>();
+        public ObservableCollection<Rate> ListRate
+        {
+            get => _listRate;
             set
             {
-                _dictRating = value;
-                //RaisePropertyChanged("DictRating");
-                //foreach(var x in _)
+                _listRate = value;                
             }
         }
 
-        public Branch(string name, int weight)
+        public Branch(string name, int weight, Module module)
         {
             this.NameBranch = name;
             this.Weight = weight;
+            this.Module = module;
 
-            this.DictRating = new List<float>[11];
+            this.ListRate = new ObservableCollection<Rate>();
+        }
 
-            for (int i = 0; i < 11; i++)
-                this.DictRating[i] = new List<float>();
-
-           /* this.DictRating[1].Add(2);
-            this.DictRating[1].Add(3);
-            this.DictRating[1].Add(4);
-
-            this.DictRating[2].Add(2);
-
-            this.DictRating[6].Add(6);
-
-            this.DictRating[8].Add(8);
-           */
-
-
-            /*for (int i = 1; i < 12; i++)
+        public void ProcessAverage()
+        {
+            int sumWeight = 0;
+            float sumMark = 0;
+            foreach(Rate rate in ListRate)
             {
-                if (DictRating[i].Count > 0)
-                { 
-                    foreach (var x in DictRating[i])
-                    {
-                        MessageBox.Show(x.ToString());
-                    }
-                }
-            }*/
+                sumWeight += rate.Weight;
+                sumMark += rate.Mark * rate.Weight;                
+            }
+
+            Average = sumMark / sumWeight;
         }
     }
 }

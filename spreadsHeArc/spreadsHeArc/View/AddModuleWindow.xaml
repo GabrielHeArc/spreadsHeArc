@@ -10,7 +10,7 @@
         MinWidth="300"
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize"
-        ShowInTaskbar="False"
+        ShowInTaskbar="True"
         WindowStartupLocation="CenterOwner">
     <Grid ShowGridLines="False">
         <Grid.ColumnDefinitions>

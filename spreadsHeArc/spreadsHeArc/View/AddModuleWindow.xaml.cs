@@ -20,7 +20,6 @@ namespace spreadsHeArc.View.Module
     /// </summary>
     public partial class AddModuleWindow : Window
     {
-        //private ModuleViewModel moduleViewModel;
         private string NewModuleName
         {
             get;
@@ -38,9 +37,7 @@ namespace spreadsHeArc.View.Module
 
             ModuleViewModel moduleViewModel = ModuleViewModel.GetInstance();
             moduleViewModel.AddModule(NewModuleName);            
-            this.DialogResult = true;
-            GridViewModel gridViewModel = new GridViewModel();
-            gridViewModel.show();
+            this.DialogResult = true;            
         }
     }
 }
