@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using spreadsHeArc.Utils;
+using System.Windows;
 
 namespace spreadsHeArc.Model
 {
@@ -31,8 +32,7 @@ namespace spreadsHeArc.Model
             }
         }
 
-        private List<float>[] _dictRating = new List<float>[6];
-
+        private List<float>[] _dictRating = new List<float>[11];
         public List<float>[] DictRating
         {
             get => _dictRating;
@@ -40,6 +40,7 @@ namespace spreadsHeArc.Model
             {
                 _dictRating = value;
                 //RaisePropertyChanged("DictRating");
+                //foreach(var x in _)
             }
         }
 
@@ -48,8 +49,33 @@ namespace spreadsHeArc.Model
             this.NameBranch = name;
             this.Weight = weight;
 
-            //DictRating.Add(4, 1);
-            //DictRating.Add(5, 2);
+            this.DictRating = new List<float>[11];
+
+            for (int i = 0; i < 11; i++)
+                this.DictRating[i] = new List<float>();
+
+           /* this.DictRating[1].Add(2);
+            this.DictRating[1].Add(3);
+            this.DictRating[1].Add(4);
+
+            this.DictRating[2].Add(2);
+
+            this.DictRating[6].Add(6);
+
+            this.DictRating[8].Add(8);
+           */
+
+
+            /*for (int i = 1; i < 12; i++)
+            {
+                if (DictRating[i].Count > 0)
+                { 
+                    foreach (var x in DictRating[i])
+                    {
+                        MessageBox.Show(x.ToString());
+                    }
+                }
+            }*/
         }
     }
 }

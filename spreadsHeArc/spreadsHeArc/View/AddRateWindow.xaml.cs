@@ -12,7 +12,6 @@ namespace spreadsHeArc.View.Branch
     /// </summary>
     public partial class AddRateWindow : Window
     {
-
         private Model.Branch _branch;
         public Model.Branch Branche
         {

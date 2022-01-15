@@ -12,6 +12,8 @@ namespace spreadsHeArc.ViewModel
     public class BranchViewModel : ViewModel
     {
         public List<Branch> ListBranches;
+
+        private List<Branch> _listbranches = new List<Branch>();
         private BranchViewModel()
         {
             ListBranches = new List<Branch>();
