@@ -45,7 +45,7 @@ namespace spreadsHeArc.View.Branch
         }
 
         private void okButton_Click(object sender, RoutedEventArgs e)
-        {            
+        {
             try
             {
                 NewMark = float.Parse(new_rate_text_box.Text.Replace('.', ','));
@@ -54,13 +54,13 @@ namespace spreadsHeArc.View.Branch
 
                 Rate newRate = new Rate(NewMark, NewRateWeight);
 
-                branchViewModel.AddRate(Branche, newRate);                
+                branchViewModel.AddRate(Branche, newRate);
                 this.DialogResult = true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }                        
+            }
         }
 
         private void list_branches_SelectionChanged(object sender, SelectionChangedEventArgs e)

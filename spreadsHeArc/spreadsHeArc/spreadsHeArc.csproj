@@ -59,6 +59,7 @@
     </ApplicationDefinition>
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\Rate.cs" />
+    <Compile Include="Utils\HandleExceptions.cs" />
     <Compile Include="Utils\Tools.cs" />
     <Compile Include="ViewModel\BranchViewModel.cs" />
     <Page Include="View\AddBranchWindow.xaml">

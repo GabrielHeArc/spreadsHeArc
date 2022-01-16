@@ -1,20 +1,7 @@
 ﻿using spreadsHeArc.View.Branch;
 using spreadsHeArc.View.Module;
 using spreadsHeArc.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace spreadsHeArc
 {
@@ -24,13 +11,13 @@ namespace spreadsHeArc
     public partial class MainWindow : Window
     {
         public MainWindow()
-        {                        
+        {
             DataContext = ModuleViewModel.GetInstance();
             InitializeComponent();
         }
 
         private void MenuItem_Click_Add_Module(object sender, RoutedEventArgs e)
-        {            
+        {
             var dialog = new AddModuleWindow();
             dialog.ShowDialog();
         }
@@ -52,8 +39,8 @@ namespace spreadsHeArc
             //var dialog = new EditBranchWindow();
             //dialog.ShowDialog();
         }
-       
-        
+
+
         private void MenuItem_Click_Add_Rate(object sender, RoutedEventArgs e)
         {
             var dialog = new AddRateWindow();

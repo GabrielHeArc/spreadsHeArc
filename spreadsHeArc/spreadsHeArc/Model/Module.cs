@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Windows;
 
 namespace spreadsHeArc.Model
 {
@@ -33,14 +31,14 @@ namespace spreadsHeArc.Model
         {
             get => _listBranch;
             set => _listBranch = value;
-        }   
+        }
 
         private ObservableCollection<Branch> _listBranch;
-        
+
         public Module(string name)
         {
-           this.NameModule = name;
-           ListBranch = new ObservableCollection<Branch>();
+            this.NameModule = name;
+            ListBranch = new ObservableCollection<Branch>();
         }
 
         public void ProcessAverage()

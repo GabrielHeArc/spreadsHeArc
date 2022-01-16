@@ -1,9 +1,5 @@
-﻿using System.Collections.ObjectModel;
-using System.Collections.Generic;
-using System.ComponentModel;
-using spreadsHeArc.Utils;
-using System.Windows;
-using System;
+﻿using System;
+using System.Collections.ObjectModel;
 
 namespace spreadsHeArc.Model
 {
@@ -48,7 +44,7 @@ namespace spreadsHeArc.Model
             get => _listRate;
             set
             {
-                _listRate = value;                
+                _listRate = value;
             }
         }
 
@@ -65,10 +61,10 @@ namespace spreadsHeArc.Model
         {
             int sumWeight = 0;
             float sumMark = 0;
-            foreach(Rate rate in ListRate)
+            foreach (Rate rate in ListRate)
             {
                 sumWeight += rate.Weight;
-                sumMark += rate.Mark * rate.Weight;                
+                sumMark += rate.Mark * rate.Weight;
             }
 
             Average = sumMark / sumWeight;

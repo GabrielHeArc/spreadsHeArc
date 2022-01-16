@@ -2,7 +2,6 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
-using spreadsHeArc.Model;
 
 
 namespace spreadsHeArc.View.Branch
@@ -36,15 +35,15 @@ namespace spreadsHeArc.View.Branch
         public AddBranchWindow()
         {
             InitializeComponent();
-            ModuleViewModel module = ModuleViewModel.GetInstance();            
+            ModuleViewModel module = ModuleViewModel.GetInstance();
 
             list_modules.ItemsSource = module.ListModules;
             list_modules.DisplayMemberPath = "NameModule";
             list_modules.SelectedIndex = 0;
         }
-        
+
         private void okButton_Click(object sender, RoutedEventArgs e)
-        {            
+        {
             try
             {
                 NewBranchName = new_branch_name_text_box.Text;
@@ -57,12 +56,12 @@ namespace spreadsHeArc.View.Branch
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }            
+            }
         }
 
         private void list_modules_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Module = (sender as ComboBox).SelectedItem as Model.Module;            
+            Module = (sender as ComboBox).SelectedItem as Model.Module;
         }
     }
 }

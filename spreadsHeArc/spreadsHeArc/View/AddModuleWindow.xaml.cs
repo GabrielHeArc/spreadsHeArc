@@ -1,17 +1,5 @@
 ﻿using spreadsHeArc.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace spreadsHeArc.View.Module
 {
@@ -25,7 +13,7 @@ namespace spreadsHeArc.View.Module
             get;
             set;
         }
-        
+
         public AddModuleWindow()
         {
             InitializeComponent();
@@ -36,8 +24,8 @@ namespace spreadsHeArc.View.Module
             NewModuleName = new_module_name_text_box.Text;
 
             ModuleViewModel moduleViewModel = ModuleViewModel.GetInstance();
-            moduleViewModel.AddModule(NewModuleName);            
-            this.DialogResult = true;            
+            moduleViewModel.AddModule(NewModuleName);
+            this.DialogResult = true;
         }
     }
 }

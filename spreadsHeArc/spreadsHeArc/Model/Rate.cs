@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace spreadsHeArc.Model
 {
@@ -19,14 +15,27 @@ namespace spreadsHeArc.Model
         public float Mark
         {
             get => _mark;
-            set => _mark = value;
+            set
+            {
+                if (value < 0)
+                    throw new Exception("La note doit être une valeur positive");
+                else
+                    _mark = value;
+            }
+
         }
 
         private int _weight;
         public int Weight
         {
             get => _weight;
-            set => _weight = value;
+            set
+            {
+                if (value < 0)
+                    throw new Exception("La pondération de la note doit être une valeur positive");
+                else
+                    _weight = value;
+            }
         }
     }
 }

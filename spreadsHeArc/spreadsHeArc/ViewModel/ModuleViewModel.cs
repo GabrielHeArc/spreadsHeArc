@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using spreadsHeArc.Model;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using spreadsHeArc.Model;
 
 namespace spreadsHeArc.ViewModel
 {
     public class ModuleViewModel : ViewModel
-    {                
+    {
         private ModuleViewModel()
         {
             ListModules = new ObservableCollection<Module>();
@@ -24,7 +17,7 @@ namespace spreadsHeArc.ViewModel
             get => _listModules;
             set
             {
-                _listModules = value;                
+                _listModules = value;
             }
         }
 
@@ -42,7 +35,7 @@ namespace spreadsHeArc.ViewModel
         {
             ListModules.Add(new Module(name));
         }
-        
+
 
     }
 }

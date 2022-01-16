@@ -1,11 +1,7 @@
-﻿using System;
+﻿using spreadsHeArc.Model;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using spreadsHeArc.Model;
 
 namespace spreadsHeArc.ViewModel
 {
@@ -23,14 +19,14 @@ namespace spreadsHeArc.ViewModel
             ListBranches = new List<Branch>();
         }
         private static BranchViewModel _instance;
-      
+
         public static BranchViewModel GetInstance()
         {
             if (_instance == null)
                 _instance = new BranchViewModel();
             return _instance;
         }
-        
+
         public void AddBranch(string name, int weight, Module module)
         {
             Branch newBranch = new Branch(name, weight, module);
