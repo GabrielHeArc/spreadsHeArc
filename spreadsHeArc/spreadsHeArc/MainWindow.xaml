@@ -10,7 +10,7 @@
         <DataTemplate x:Key="DataTemplateGrid">
             <StackPanel Orientation="Vertical">
                 <Border CornerRadius="0" BorderBrush="Black" Background="White" BorderThickness="1">
-                    <Label Content="{Binding Weight}"></Label>
+                    <Label Content="{Binding WeightMark}"></Label>
                 </Border>
                 <Border CornerRadius="0" BorderBrush="Black" Background="White" BorderThickness="1">
                         <Label Content="{Binding Mark}"></Label>
@@ -40,7 +40,7 @@
                         <Border CornerRadius="0" BorderBrush="Black" Background="White" BorderThickness="1">
                             <StackPanel Orientation="Vertical">
                             <Label>Moyenne</Label>
-                            <Label HorizontalAlignment="Center" Content="{Binding Average}"></Label>
+                            <Label HorizontalAlignment="Center" Content="{Binding AverageBranch}"></Label>
                         </StackPanel>
                     </Border>
                     </Grid>
@@ -50,12 +50,12 @@
 
 
         <DataTemplate x:Key="DataTemplateModule">
-            <Border CornerRadius="6" BorderBrush="Green" Background="White" BorderThickness="3">
+            <Border CornerRadius="6" BorderBrush="Green" Background="White" BorderThickness="3" Margin="20">
                 <StackPanel Margin="15">
                     <StackPanel Orientation="Horizontal">
                         <Label FontWeight="Bold" FontSize="24" Content="{Binding NameModule}"></Label>
                         <Label FontWeight="SemiBold" FontSize="24" >Moyenne : </Label>
-                        <Label FontWeight="Bold" FontSize="24" Content="{Binding Average}"></Label>
+                        <Label FontWeight="Bold" FontSize="24" Content="{Binding AverageModule}"></Label>
                     </StackPanel>
                         <Grid>
                             <ItemsControl ItemsSource="{Binding ListBranch}" ItemTemplate="{DynamicResource DataTemplateBranche}"/>
@@ -76,20 +76,20 @@
             </MenuItem>
             <MenuItem Header="Modules">
                 <MenuItem Click="MenuItem_Click_Add_Module" Header="Ajouter module" />
-                <MenuItem Click="MenuItem_Click_Edit_Module" Header="Modifier un module" />
             </MenuItem>
             <MenuItem Header="_Branches">
                 <MenuItem Click="MenuItem_Click_Add_Branch" Header="_Ajouter branche" />
-                <MenuItem Click="MenuItem_Click_Edit_Branch" Header="_Modifier une branche" />
             </MenuItem>
             <MenuItem Header="_Notes">
-                <MenuItem Click="MenuItem_Click_Add_Rate" Header="_Ajouter une note" />
+                <MenuItem Click="MenuItem_Click_Add_Rating" Header="_Ajouter une note" />
             </MenuItem>
         </Menu>
-        <StackPanel>
-                <Grid>
-                    <ItemsControl ItemsSource="{Binding ListModules}" ItemTemplate="{DynamicResource DataTemplateModule}"/>
-                </Grid>
-        </StackPanel>
+        <ScrollViewer>
+            <StackPanel>
+                    <Grid>
+                        <ItemsControl ItemsSource="{Binding ListModules}" ItemTemplate="{DynamicResource DataTemplateModule}"/>
+                    </Grid>
+            </StackPanel>
+        </ScrollViewer>
     </DockPanel>    
 </Window>

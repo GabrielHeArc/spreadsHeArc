@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spreadsHeArc"
         mc:Ignorable="d"
-        Title="AddModuleWindow"
+        Title="Ajouter un module"
         MinHeight="200"
         MinWidth="300"
         SizeToContent="WidthAndHeight"
@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
         
         <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Nouveau Module :" />
-        <TextBox Grid.Row="0" Name="new_module_name_text_box" Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Text="My text"/>
+        <TextBox Grid.Row="0" Name="new_module_name_text_box" Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Module" Width="100"/>
         <Button Grid.Row="1" Grid.Column="0" Margin="10,10,10,10" Name="cancelButton" IsCancel="True" Width="75" Height="20">Cancel</Button>
         <Button Grid.Row="1" Grid.Column="1" Margin="10,10,10,10" Name="okButton" IsDefault="True" Width="75" Height="20" Click="OkButton_Click">OK</Button>
     </Grid>

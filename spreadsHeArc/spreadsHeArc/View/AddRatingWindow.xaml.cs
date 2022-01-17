@@ -10,7 +10,7 @@ namespace spreadsHeArc.View.Branch
     /// <summary>
     /// Logique d'interaction pour AddRateWindow.xaml
     /// </summary>
-    public partial class AddRateWindow : Window
+    public partial class AddRatingWindow : Window
     {
         private Model.Branch _branch;
         public Model.Branch Branche
@@ -19,21 +19,21 @@ namespace spreadsHeArc.View.Branch
             set => _branch = value;
         }
 
-        private float _newRate;
+        private float _newMark;
         public float NewMark
         {
-            get => _newRate;
-            set => _newRate = value;
+            get => _newMark;
+            set => _newMark = value;
         }
 
-        private int _newRateWeight;
-        public int NewRateWeight
+        private int _newMarkWeight;
+        public int NewMarkWeight
         {
-            get => _newRateWeight;
-            set => _newRateWeight = value;
+            get => _newMarkWeight;
+            set => _newMarkWeight = value;
         }
 
-        public AddRateWindow()
+        public AddRatingWindow()
         {
             InitializeComponent();
             BranchViewModel branch = BranchViewModel.GetInstance();
@@ -44,15 +44,15 @@ namespace spreadsHeArc.View.Branch
 
         }
 
-        private void okButton_Click(object sender, RoutedEventArgs e)
+        private void OkButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 NewMark = float.Parse(new_rate_text_box.Text.Replace('.', ','));
-                NewRateWeight = int.Parse(new_rate_weight_text_box.Text.Replace('.', ','));
+                NewMarkWeight = int.Parse(new_rate_weight_text_box.Text.Replace('.', ','));
                 BranchViewModel branchViewModel = BranchViewModel.GetInstance();
 
-                Rate newRate = new Rate(NewMark, NewRateWeight);
+                Rating newRate = new Rating(NewMark, NewMarkWeight);
 
                 branchViewModel.AddRate(Branche, newRate);
                 this.DialogResult = true;

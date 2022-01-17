@@ -12,21 +12,21 @@ namespace spreadsHeArc.Model
             set => _nameBranch = value;
         }
 
-        private int _weight;
+        private int _weightBranch;
         public int Weight
         {
-            get => _weight;
-            set => _weight = value;
+            get => _weightBranch;
+            set => _weightBranch = value;
         }
 
-        private float _average;
-        public float Average
+        private float _averageBranch;
+        public float AverageBranch
         {
-            get => _average;
+            get => _averageBranch;
             set
             {
-                _average = (float)Math.Round(value, 2);
-                RaisePropertyChanged("Average");
+                _averageBranch = (float)Math.Round(value, 2);
+                RaisePropertyChanged("AverageBranch");
             }
         }
 
@@ -38,36 +38,33 @@ namespace spreadsHeArc.Model
             set => _module = value;
         }
 
-        private ObservableCollection<Rate> _listRate = new ObservableCollection<Rate>();
-        public ObservableCollection<Rate> ListRate
+        private ObservableCollection<Rating> _listRate = new ObservableCollection<Rating>();
+        public ObservableCollection<Rating> ListRate
         {
             get => _listRate;
-            set
-            {
-                _listRate = value;
-            }
+            set => _listRate = value;            
         }
 
         public Branch(string name, int weight, Module module)
         {
-            this.NameBranch = name;
-            this.Weight = weight;
-            this.Module = module;
+            NameBranch = name;
+            Weight = weight;
+            Module = module;
 
-            this.ListRate = new ObservableCollection<Rate>();
+            ListRate = new ObservableCollection<Rating>();
         }
 
         public void ProcessAverage()
         {
             int sumWeight = 0;
             float sumMark = 0;
-            foreach (Rate rate in ListRate)
+            foreach (Rating rate in ListRate)
             {
-                sumWeight += rate.Weight;
-                sumMark += rate.Mark * rate.Weight;
+                sumWeight += rate.WeightMark;
+                sumMark += rate.Mark * rate.WeightMark;
             }
 
-            Average = sumMark / sumWeight;
+            AverageBranch = sumMark / sumWeight;
         }
     }
 }

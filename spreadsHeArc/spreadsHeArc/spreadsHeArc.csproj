@@ -58,15 +58,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Model.cs" />
-    <Compile Include="Model\Rate.cs" />
-    <Compile Include="Utils\HandleExceptions.cs" />
+    <Compile Include="Model\Rating.cs" />
     <Compile Include="Utils\Tools.cs" />
     <Compile Include="ViewModel\BranchViewModel.cs" />
     <Page Include="View\AddBranchWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddRateWindow.xaml">
+    <Page Include="View\AddRatingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -83,8 +82,8 @@
     <Compile Include="View\AddBranchWindow.xaml.cs">
       <DependentUpon>AddBranchWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AddRateWindow.xaml.cs">
-      <DependentUpon>AddRateWindow.xaml</DependentUpon>
+    <Compile Include="View\AddRatingWindow.xaml.cs">
+      <DependentUpon>AddRatingWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AddModuleWindow.xaml.cs">
       <DependentUpon>AddModuleWindow.xaml</DependentUpon>

@@ -7,18 +7,19 @@ namespace spreadsHeArc.ViewModel
 {
     public class BranchViewModel : ViewModel
     {
+        private List<Branch> _listBranches = new List<Branch>();
         public List<Branch> ListBranches
         {
-            get => _listbranches;
-            set => _listbranches = value;
+            get => _listBranches;
+            set => _listBranches = value;
         }
 
-        private List<Branch> _listbranches = new List<Branch>();
+        private static BranchViewModel _instance;
+
         private BranchViewModel()
         {
             ListBranches = new List<Branch>();
-        }
-        private static BranchViewModel _instance;
+        }        
 
         public static BranchViewModel GetInstance()
         {
@@ -42,7 +43,7 @@ namespace spreadsHeArc.ViewModel
             }
         }
 
-        public void AddRate(Branch branch, Rate rate)
+        public void AddRate(Branch branch, Rating rate)
         {
             branch.ListRate.Add(rate);
             branch.ProcessAverage();

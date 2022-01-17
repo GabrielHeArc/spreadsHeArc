@@ -8,10 +8,12 @@ namespace spreadsHeArc.View.Module
     /// </summary>
     public partial class AddModuleWindow : Window
     {
-        private string NewModuleName
+
+        private string _newModuleName;
+        public string NewModuleName
         {
-            get;
-            set;
+            get => _newModuleName;
+            set => _newModuleName = value;
         }
 
         public AddModuleWindow()

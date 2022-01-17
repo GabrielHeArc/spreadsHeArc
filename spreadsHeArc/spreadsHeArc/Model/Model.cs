@@ -10,8 +10,7 @@ namespace spreadsHeArc.Model
         {
             if (PropertyChanged != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-                //MessageBox.Show("PROPERTY CHANGED");
+                PropertyChanged(this, new PropertyChangedEventArgs(property));                
             }
         }
     }

@@ -12,15 +12,15 @@ namespace spreadsHeArc.Model
             set => _nameModule = value;
         }
 
-        private float _average;
+        private float _averageModule;
 
-        public float Average
+        public float AverageModule
         {
-            get => _average;
+            get => _averageModule;
             set
             {
-                _average = (float)Math.Round(value, 1);
-                RaisePropertyChanged("Average");
+                _averageModule = (float)Math.Round(value, 1);
+                RaisePropertyChanged("AverageModule");
             }
         }
 
@@ -48,11 +48,10 @@ namespace spreadsHeArc.Model
             foreach (Branch branch in ListBranch)
             {
                 sumWeight += branch.Weight;
-                sumAverage += branch.Average * branch.Weight;
+                sumAverage += branch.AverageBranch * branch.Weight;
             }
 
-            Average = sumAverage / sumWeight;
-            //MessageBox.Show("Process average module");
+            AverageModule = sumAverage / sumWeight;            
         }
     }
 }

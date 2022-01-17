@@ -21,29 +21,16 @@ namespace spreadsHeArc
             var dialog = new AddModuleWindow();
             dialog.ShowDialog();
         }
-
-        private void MenuItem_Click_Edit_Module(object sender, RoutedEventArgs e)
-        {
-            //var dialog = new EditModuleWindow();
-            //dialog.ShowDialog();
-        }
-
+      
         private void MenuItem_Click_Add_Branch(object sender, RoutedEventArgs e)
         {
             var dialog = new AddBranchWindow();
             dialog.ShowDialog();
-        }
+        }      
 
-        private void MenuItem_Click_Edit_Branch(object sender, RoutedEventArgs e)
+        private void MenuItem_Click_Add_Rating(object sender, RoutedEventArgs e)
         {
-            //var dialog = new EditBranchWindow();
-            //dialog.ShowDialog();
-        }
-
-
-        private void MenuItem_Click_Add_Rate(object sender, RoutedEventArgs e)
-        {
-            var dialog = new AddRateWindow();
+            var dialog = new AddRatingWindow();
             dialog.ShowDialog();
         }
     }

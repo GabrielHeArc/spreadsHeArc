@@ -2,15 +2,8 @@
 
 namespace spreadsHeArc.Model
 {
-    public class Rate : Model
-    {
-        public Rate(float mark, int weight)
-        {
-            this.Mark = mark;
-
-            this.Weight = weight;
-        }
-
+    public class Rating : Model
+    {        
         private float _mark;
         public float Mark
         {
@@ -25,17 +18,24 @@ namespace spreadsHeArc.Model
 
         }
 
-        private int _weight;
-        public int Weight
+        private int _weightMark;
+        public int WeightMark
         {
-            get => _weight;
+            get => _weightMark;
             set
             {
                 if (value < 0)
                     throw new Exception("La pondération de la note doit être une valeur positive");
                 else
-                    _weight = value;
+                    _weightMark = value;
             }
+        }
+
+        public Rating(float mark, int weight)
+        {
+            this.Mark = mark;
+
+            this.WeightMark = weight;
         }
     }
 }

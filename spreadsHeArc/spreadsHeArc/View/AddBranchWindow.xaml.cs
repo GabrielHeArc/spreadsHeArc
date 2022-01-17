@@ -42,7 +42,7 @@ namespace spreadsHeArc.View.Branch
             list_modules.SelectedIndex = 0;
         }
 
-        private void okButton_Click(object sender, RoutedEventArgs e)
+        private void OkButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
