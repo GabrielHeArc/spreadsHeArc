@@ -40,8 +40,6 @@ namespace spreadsHeArc.View.Branch
             list_modules.ItemsSource = module.ListModules;
             list_modules.DisplayMemberPath = "NameModule";
             list_modules.SelectedIndex = 0;
-
-
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
@@ -61,7 +59,7 @@ namespace spreadsHeArc.View.Branch
             }
         }
 
-        private void list_modules_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void List_modules_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Module = (sender as ComboBox).SelectedItem as Model.Module;
         }

@@ -35,7 +35,7 @@
             <ComboBoxItem>6</ComboBoxItem>
         </ComboBox>
 
-        <ComboBox Grid.Row="2" Grid.Column="1" Height="23" Width="120" Name="list_modules" SelectionChanged="list_modules_SelectionChanged"/>
+        <ComboBox Grid.Row="2" Grid.Column="1" Height="23" Width="120" Name="list_modules" SelectionChanged="List_modules_SelectionChanged"/>
 
         <Button Grid.Row="3" Grid.Column="0" Margin="10,10,10,10" Name="cancelButton" IsCancel="True" Width="75" Height="20">Cancel</Button>
         <Button Grid.Row="3" Grid.Column="1" Margin="10,10,10,10" Name="okButton" IsDefault="True" Width="75" Height="20" Click="OkButton_Click">OK</Button>
