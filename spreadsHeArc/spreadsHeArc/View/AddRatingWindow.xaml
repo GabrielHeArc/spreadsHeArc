@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spreadsHeArc.View.Branch"
         mc:Ignorable="d"
-        Title="AddRateWindow"
+        Title="Ajouter note"
         MinHeight="200"
         MinWidth="300"
         SizeToContent="WidthAndHeight"
