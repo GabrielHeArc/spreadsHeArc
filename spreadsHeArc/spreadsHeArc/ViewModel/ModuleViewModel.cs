@@ -30,12 +30,9 @@ namespace spreadsHeArc.ViewModel
             return _instance;
         }
 
-
         public void AddModule(string name)
         {
             ListModules.Add(new Module(name));
         }
-
-
     }
 }

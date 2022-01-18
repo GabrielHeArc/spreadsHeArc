@@ -40,6 +40,8 @@ namespace spreadsHeArc.View.Branch
             list_modules.ItemsSource = module.ListModules;
             list_modules.DisplayMemberPath = "NameModule";
             list_modules.SelectedIndex = 0;
+
+
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)

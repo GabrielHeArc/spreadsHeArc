@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewmodel="clr-namespace:spreadsHeArc.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:ModuleViewModel}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Tableau des notes" Height="450" Width="800">
     <Window.Resources>
         <DataTemplate x:Key="DataTemplateGrid">
             <StackPanel Orientation="Vertical">
@@ -74,7 +74,7 @@
                 <Separator />
                 <MenuItem Header="_Exit" />
             </MenuItem>
-            <MenuItem Header="Modules">
+            <MenuItem Header="_Modules">
                 <MenuItem Click="MenuItem_Click_Add_Module" Header="Ajouter module" />
             </MenuItem>
             <MenuItem Header="_Branches">
