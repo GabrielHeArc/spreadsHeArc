@@ -23,7 +23,7 @@
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <StackPanel Orientation="Vertical">
                         <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Content="{Binding NameBranch}"></Label>
-                        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12" Content="{Binding Weight, StringFormat=${0}}" ContentStringFormat="Pondération: {0}"></Label>
+                        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12" Content="{Binding WeightBranch, StringFormat=${0}}" ContentStringFormat="Pondération: {0}"></Label>
                     </StackPanel>
                     <Border VerticalAlignment="Center" CornerRadius="0" BorderBrush="Black" Background="GreenYellow" BorderThickness="1">
                         <Grid>
@@ -38,11 +38,14 @@
                     </Border>
                     <Grid HorizontalAlignment="Right">
                         <Border CornerRadius="0" BorderBrush="Black" Background="White" BorderThickness="1">
-                            <StackPanel Orientation="Vertical">
-                            <Label>Moyenne</Label>
-                            <Label HorizontalAlignment="Center" Content="{Binding AverageBranch}"></Label>
-                        </StackPanel>
-                    </Border>
+                            <StackPanel Orientation="Vertical" Name="AverageBranch">
+                                <StackPanel.Background>
+                                    <SolidColorBrush Color="{Binding Color}"/>
+                                </StackPanel.Background>
+                                <Label>Moyenne</Label>
+                                <Label HorizontalAlignment="Center" Content="{Binding AverageBranch}"></Label>
+                            </StackPanel>
+                        </Border>
                     </Grid>
                 </StackPanel>
             </Border>
@@ -75,10 +78,13 @@
                 <MenuItem Header="_Exit" />
             </MenuItem>
             <MenuItem Header="_Modules">
-                <MenuItem Click="MenuItem_Click_Add_Module" Header="Ajouter module" />
+                <MenuItem Click="MenuItem_Click_Add_Module" Header="_Ajouter module" />
+                <MenuItem Click="MenuItem_Click_Edit_Module" Header="_Editer module" />
             </MenuItem>
             <MenuItem Header="_Branches">
                 <MenuItem Click="MenuItem_Click_Add_Branch" Header="_Ajouter branche" />
+                <MenuItem Click="MenuItem_Click_Edit_Name_Branch" Header="_Editer noms Branches" />
+                <MenuItem Click="MenuItem_Click_Edit_Weight_Branch" Header="_Editer Poids Branches" />
             </MenuItem>
             <MenuItem Header="_Notes">
                 <MenuItem Click="MenuItem_Click_Add_Rating" Header="_Ajouter une note" />

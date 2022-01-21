@@ -59,8 +59,16 @@
     </ApplicationDefinition>
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\Rating.cs" />
-    <Compile Include="Utils\Tools.cs" />
     <Compile Include="ViewModel\BranchViewModel.cs" />
+    <Compile Include="View\EditBranchName.xaml.cs">
+      <DependentUpon>EditBranchName.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditBranchWeight.xaml.cs">
+      <DependentUpon>EditBranchWeight.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditModuleWindow.xaml.cs">
+      <DependentUpon>EditModuleWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\AddBranchWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -97,6 +105,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\EditBranchName.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditBranchWeight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditModuleWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Module.cs" />

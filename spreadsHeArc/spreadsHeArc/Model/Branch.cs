@@ -5,18 +5,41 @@ namespace spreadsHeArc.Model
 {
     public class Branch : Model
     {
+        /// <summary>
+        /// Construct new branch with name, weight and module membership
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="weight"></param>
+        /// <param name="module"></param>
+        public Branch(string name, int weight, Module module)
+        {
+            NameBranch = name;
+            WeightBranch = weight;
+            Module = module;
+            // init list rates of branch
+            ListRate = new ObservableCollection<Rating>();
+        }
+
         private string _nameBranch;
         public string NameBranch
         {
             get => _nameBranch;
-            set => _nameBranch = value;
+            set
+            {
+                _nameBranch = value;
+                RaisePropertyChanged("NameBranch");
+            }
         }
 
         private int _weightBranch;
-        public int Weight
+        public int WeightBranch
         {
             get => _weightBranch;
-            set => _weightBranch = value;
+            set
+            {
+                _weightBranch = value;
+                RaisePropertyChanged("WeightBranch");
+            }
         }
 
         private float _averageBranch;
@@ -31,7 +54,6 @@ namespace spreadsHeArc.Model
         }
 
         private Module _module;
-
         public Module Module
         {
             get => _module;
@@ -42,18 +64,12 @@ namespace spreadsHeArc.Model
         public ObservableCollection<Rating> ListRate
         {
             get => _listRate;
-            set => _listRate = value;            
+            set => _listRate = value;
         }
 
-        public Branch(string name, int weight, Module module)
-        {
-            NameBranch = name;
-            Weight = weight;
-            Module = module;
-
-            ListRate = new ObservableCollection<Rating>();
-        }
-
+        /// <summary>
+        /// Process average for branch
+        /// </summary>
         public void ProcessAverage()
         {
             int sumWeight = 0;

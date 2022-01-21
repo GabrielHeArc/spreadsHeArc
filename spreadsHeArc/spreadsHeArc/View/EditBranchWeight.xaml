@@ -1,17 +1,18 @@
-﻿<Window x:Class="spreadsHeArc.View.Branch.AddRatingWindow"
+﻿<Window x:Class="spreadsHeArc.View.EditBranchWeight"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:spreadsHeArc.View.Branch"
+        xmlns:local="clr-namespace:spreadsHeArc.View"
         mc:Ignorable="d"
-        Title="Ajouter note"
+        Title="EditBranchWeight"
         MinHeight="200"
         MinWidth="300"
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize"
         ShowInTaskbar="True"
         WindowStartupLocation="CenterOwner">
+
     <Grid ShowGridLines="False">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -21,19 +22,21 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+
         <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Branche :" />
         <ComboBox Grid.Row="0" Grid.Column="1" Height="23" Width="120" Name="list_branches" SelectionChanged="List_branches_SelectionChanged"/>
 
-        <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Note :" />
-        <TextBox Grid.Row="1" Grid.Column="1" Name="new_rate_text_box" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100"/>
+        <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Nouvelle pondération de la branche :" />
+        <ComboBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Name="new_weight_branch_combo_box" SelectedIndex="0">
+            <ComboBoxItem>1</ComboBoxItem>
+            <ComboBoxItem>2</ComboBoxItem>
+            <ComboBoxItem>3</ComboBoxItem>
+            <ComboBoxItem>4</ComboBoxItem>
+            <ComboBoxItem>6</ComboBoxItem>
+        </ComboBox>
 
-        <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Poids de la note :" />
-        <TextBox Grid.Row="2" Grid.Column="1" Name="new_rate_weight_text_box" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Text="1" Width="100"/>
-        
-
-        <Button Grid.Row="3" Grid.Column="0" Margin="10,10,10,10" Name="cancelButton" IsCancel="True" Width="75" Height="20">Cancel</Button>
+        <Button Grid.Row="3" Grid.Column="0" Margin="10,10,10,10" Name="cancelButton" IsCancel="True" Width="75" Height="20">Annuler</Button>
         <Button Grid.Row="3" Grid.Column="1" Margin="10,10,10,10" Name="okButton" IsDefault="True" Width="75" Height="20" Click="OkButton_Click">OK</Button>
     </Grid>
 </Window>

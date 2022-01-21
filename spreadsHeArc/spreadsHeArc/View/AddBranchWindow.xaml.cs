@@ -11,6 +11,19 @@ namespace spreadsHeArc.View.Branch
     /// </summary>
     public partial class AddBranchWindow : Window
     {
+        /// <summary>
+        /// Initialize window for adding branch to programm. Displays list of modules available
+        /// </summary>
+        public AddBranchWindow()
+        {
+            InitializeComponent();
+            ModuleViewModel module = ModuleViewModel.GetInstance();
+
+            list_modules.ItemsSource = module.ListModules;
+            list_modules.DisplayMemberPath = "NameModule";
+            list_modules.SelectedIndex = 0;
+        }
+
         private string _newBranchName;
         public string NewBranchName
         {
@@ -31,26 +44,18 @@ namespace spreadsHeArc.View.Branch
             get => _module;
             set => _module = value;
         }
-
-        public AddBranchWindow()
-        {
-            InitializeComponent();
-            ModuleViewModel module = ModuleViewModel.GetInstance();
-
-            list_modules.ItemsSource = module.ListModules;
-            list_modules.DisplayMemberPath = "NameModule";
-            list_modules.SelectedIndex = 0;
-        }
-
+        
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 NewBranchName = new_branch_name_text_box.Text;
-                NewBranchWeight = int.Parse(new_branch_weight_text_box.Text);
+
+                if (string.IsNullOrEmpty(NewBranchName))
+                    throw new Exception("Le nom de la branche ne peut pas être vide");
+                NewBranchWeight = int.Parse(new_branch_weight_combo_box.Text);
                 BranchViewModel branchViewModel = BranchViewModel.GetInstance();
                 branchViewModel.AddBranch(NewBranchName, NewBranchWeight, Module);
-
                 this.DialogResult = true;
             }
             catch (Exception ex)

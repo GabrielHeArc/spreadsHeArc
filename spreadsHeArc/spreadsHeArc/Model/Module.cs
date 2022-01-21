@@ -3,17 +3,33 @@ using System.Collections.ObjectModel;
 
 namespace spreadsHeArc.Model
 {
+    /// <summary>
+    /// Module class has name, average, list of all branches in module and function to compute average
+    /// </summary>
     public class Module : Model
     {
+        /// <summary>
+        /// Construct module with a name
+        /// </summary>
+        /// <param name="name"></param>
+        public Module(string name)
+        {
+            this.NameModule = name;
+            ListBranch = new ObservableCollection<Branch>();
+        }
+
         private string _nameModule;
         public string NameModule
         {
             get => _nameModule;
-            set => _nameModule = value;
+            set
+            {
+                _nameModule = value;
+                RaisePropertyChanged("NameModule");
+            }
         }
 
         private float _averageModule;
-
         public float AverageModule
         {
             get => _averageModule;
@@ -24,34 +40,25 @@ namespace spreadsHeArc.Model
             }
         }
 
-        /// <summary>
-        /// Nom de la branche et pondération dans le module
-        /// </summary>
+        private ObservableCollection<Branch> _listBranch;
         public ObservableCollection<Branch> ListBranch
         {
             get => _listBranch;
             set => _listBranch = value;
         }
-
-        private ObservableCollection<Branch> _listBranch;
-
-        public Module(string name)
-        {
-            this.NameModule = name;
-            ListBranch = new ObservableCollection<Branch>();
-        }
-
-        public void ProcessAverage()
+       
+        public float ProcessAverage()
         {
             int sumWeight = 0;
             float sumAverage = 0;
             foreach (Branch branch in ListBranch)
             {
-                sumWeight += branch.Weight;
-                sumAverage += branch.AverageBranch * branch.Weight;
+                sumWeight += branch.WeightBranch;
+                sumAverage += branch.AverageBranch * branch.WeightBranch;
             }
 
-            AverageModule = sumAverage / sumWeight;            
+            AverageModule = sumAverage / sumWeight;
+            return AverageModule;
         }
     }
 }

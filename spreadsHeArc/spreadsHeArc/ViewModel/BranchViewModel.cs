@@ -5,22 +5,23 @@ using System.Windows;
 
 namespace spreadsHeArc.ViewModel
 {
+    /// <summary>
+    /// BranchViewModel is designed with Singleton pattern. It references all branches of all modules in list
+    /// </summary>
     public class BranchViewModel : ViewModel
     {
-        private List<Branch> _listBranches = new List<Branch>();
-        public List<Branch> ListBranches
-        {
-            get => _listBranches;
-            set => _listBranches = value;
-        }
-
-        private static BranchViewModel _instance;
-
+        /// <summary>
+        /// Private constructor due to Singleton pattern.
+        /// </summary>
         private BranchViewModel()
         {
             ListBranches = new List<Branch>();
-        }        
+        }
 
+        /// <summary>
+        /// Getter of BranchViewModel single instance.
+        /// </summary>
+        /// <returns>BranchViewModel instance</returns>
         public static BranchViewModel GetInstance()
         {
             if (_instance == null)
@@ -28,6 +29,21 @@ namespace spreadsHeArc.ViewModel
             return _instance;
         }
 
+        private static BranchViewModel _instance;
+
+        private List<Branch> _listBranches = new List<Branch>();
+        public List<Branch> ListBranches
+        {
+            get => _listBranches;
+            set => _listBranches = value;
+        }        
+
+        /// <summary>
+        /// AddBranch adds a just created branch in list of branch in its module.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="weight"></param>
+        /// <param name="module"></param>
         public void AddBranch(string name, int weight, Module module)
         {
             Branch newBranch = new Branch(name, weight, module);
@@ -38,16 +54,19 @@ namespace spreadsHeArc.ViewModel
             }
             catch (Exception)
             {
-                MessageBox.Show("Erreur : Aucun module n'est renseigné.");
-                MessageBox.Show("Les modifications n'ont pas été enregistrées.");
+                MessageBox.Show("Erreur : Aucun module n'est renseigné.\nLes modifications n'ont pas été enregistrées.");
             }
         }
 
-        public void AddRate(Branch branch, Rating rate)
+        /// <summary>
+        /// AddRating adds new rating instance in list of rates on appropriate branch.
+        /// </summary>
+        /// <param name="branch"></param>
+        /// <param name="rate"></param>
+        public void AddRating(Branch branch, Rating rate)
         {
             branch.ListRate.Add(rate);
             branch.ProcessAverage();
-            branch.Module.ProcessAverage();
         }
     }
 }
