@@ -67,6 +67,7 @@ namespace spreadsHeArc.ViewModel
         {
             branch.ListRate.Add(rate);
             branch.ProcessAverage();
+            branch.Module.ProcessAverage();
         }
     }
 }

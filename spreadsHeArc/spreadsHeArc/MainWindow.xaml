@@ -39,9 +39,6 @@
                     <Grid HorizontalAlignment="Right">
                         <Border CornerRadius="0" BorderBrush="Black" Background="White" BorderThickness="1">
                             <StackPanel Orientation="Vertical" Name="AverageBranch">
-                                <StackPanel.Background>
-                                    <SolidColorBrush Color="{Binding Color}"/>
-                                </StackPanel.Background>
                                 <Label>Moyenne</Label>
                                 <Label HorizontalAlignment="Center" Content="{Binding AverageBranch}"></Label>
                             </StackPanel>

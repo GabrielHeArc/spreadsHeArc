@@ -30,7 +30,7 @@ namespace spreadsHeArc.ViewModel
         public ObservableCollection<Module> ListModules
         {
             get => _listModules;
-            set { _listModules = value; Console.WriteLine(_listModules); }
+            set => _listModules = value;
         }
         
         /// <summary>

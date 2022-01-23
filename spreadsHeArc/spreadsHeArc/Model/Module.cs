@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace spreadsHeArc.Model
 {
@@ -11,7 +12,7 @@ namespace spreadsHeArc.Model
         /// <summary>
         /// Construct module with a name
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name">Name of module</param>
         public Module(string name)
         {
             this.NameModule = name;
@@ -35,7 +36,7 @@ namespace spreadsHeArc.Model
             get => _averageModule;
             set
             {
-                _averageModule = (float)Math.Round(value, 1);
+                _averageModule = (float)Math.Round(value, 2);
                 RaisePropertyChanged("AverageModule");
             }
         }
@@ -47,7 +48,7 @@ namespace spreadsHeArc.Model
             set => _listBranch = value;
         }
        
-        public float ProcessAverage()
+        public void ProcessAverage()
         {
             int sumWeight = 0;
             float sumAverage = 0;
@@ -57,8 +58,7 @@ namespace spreadsHeArc.Model
                 sumAverage += branch.AverageBranch * branch.WeightBranch;
             }
 
-            AverageModule = sumAverage / sumWeight;
-            return AverageModule;
+            AverageModule = sumAverage / sumWeight;            
         }
     }
 }
