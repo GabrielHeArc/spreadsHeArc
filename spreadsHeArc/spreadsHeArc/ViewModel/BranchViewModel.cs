@@ -49,12 +49,12 @@ namespace spreadsHeArc.ViewModel
             Branch newBranch = new Branch(name, weight, module);
             ListBranches.Add(newBranch);
             try
-            {
+            {                                    
                 module.ListBranch.Add(newBranch);
             }
             catch (Exception)
             {
-                MessageBox.Show("Erreur : Aucun module n'est renseigné.\nLes modifications n'ont pas été enregistrées.");
+                MessageBox.Show("Erreur : Aucun module n'est renseigné");
             }
         }
 

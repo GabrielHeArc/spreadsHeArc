@@ -43,7 +43,10 @@ namespace spreadsHeArc.View
                 if (IndexOfModule == -1)
                     throw new Exception("Le module à modifier n'existe pas");
 
+
                 NewNameModule = _new_name_module_text_box.Text;
+                if(string.IsNullOrEmpty(NewNameModule))
+                    throw new Exception("Le nom du module ne peut pas être vide");
                 moduleViewModel.ListModules[IndexOfModule].NameModule = NewNameModule;
 
                 this.DialogResult = true;

@@ -51,6 +51,10 @@ namespace spreadsHeArc.View
                     throw new Exception("La branche à modifier n'existe pas");
 
                 NewNameBranch = _new_name_branch_text_box.Text;
+
+                if (string.IsNullOrEmpty(NewNameBranch))
+                    throw new Exception("Le nom de la branche ne peut pas être vide");
+
                 branchViewModel.ListBranches[IndexOfModule].NameBranch = NewNameBranch;                
 
                 this.DialogResult = true;
