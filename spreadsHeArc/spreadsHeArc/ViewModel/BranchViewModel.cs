@@ -41,9 +41,9 @@ namespace spreadsHeArc.ViewModel
         /// <summary>
         /// AddBranch adds a just created branch in list of branch in its module.
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="weight"></param>
-        /// <param name="module"></param>
+        /// <param name="name">Name of new branch</param>
+        /// <param name="weight">Weight of new branch in module</param>
+        /// <param name="module">Module instance of branch</param>
         public void AddBranch(string name, int weight, Module module)
         {
             Branch newBranch = new Branch(name, weight, module);

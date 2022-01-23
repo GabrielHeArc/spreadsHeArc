@@ -10,7 +10,7 @@ namespace spreadsHeArc.Model
         /// </summary>
         /// <param name="name">Name of branch</param>
         /// <param name="weight">Weight of branch in module</param>
-        /// <param name="module">Name of branch's module</param>
+        /// <param name="module">Module instannce of branch's module</param>
         public Branch(string name, int weight, Module module)
         {
             NameBranch = name;

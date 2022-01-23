@@ -7,8 +7,8 @@ namespace spreadsHeArc.Model
         /// <summary>
         /// Rating object contains mark and its weight.
         /// </summary>
-        /// <param name="mark"></param>
-        /// <param name="weight"></param>
+        /// <param name="mark">Mark in branch</param>
+        /// <param name="weight">Weight of a mark in branch</param>
         public Rating(float mark, int weight)
         {
             this.Mark = mark;
