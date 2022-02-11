@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 
@@ -7,6 +8,7 @@ namespace spreadsHeArc.Model
     /// <summary>
     /// Module class has name, average, list of all branches in module and function to compute average
     /// </summary>
+    [JsonObject(MemberSerialization.OptIn)]
     public class Module : Model
     {
         /// <summary>
@@ -15,11 +17,12 @@ namespace spreadsHeArc.Model
         /// <param name="name">Name of module</param>
         public Module(string name)
         {
-            this.NameModule = name;
-            ListBranch = new ObservableCollection<Branch>();
+            this.NameModule = name;            
         }
 
         private string _nameModule;
+        
+        [JsonProperty]
         public string NameModule
         {
             get => _nameModule;
@@ -41,13 +44,9 @@ namespace spreadsHeArc.Model
             }
         }
 
-        private ObservableCollection<Branch> _listBranch;
-        public ObservableCollection<Branch> ListBranch
-        {
-            get => _listBranch;
-            set => _listBranch = value;
-        }
-       
+        [JsonProperty]
+        public ObservableCollection<Branch> ListBranch { get; set; } = new ObservableCollection<Branch>();
+
         public void ProcessAverage()
         {
             int sumWeight = 0;

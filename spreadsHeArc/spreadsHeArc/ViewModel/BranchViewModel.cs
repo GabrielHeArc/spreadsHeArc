@@ -15,7 +15,6 @@ namespace spreadsHeArc.ViewModel
         /// </summary>
         private BranchViewModel()
         {
-            ListBranches = new List<Branch>();
         }
 
         /// <summary>
@@ -31,12 +30,7 @@ namespace spreadsHeArc.ViewModel
 
         private static BranchViewModel _instance;
 
-        private List<Branch> _listBranches = new List<Branch>();
-        public List<Branch> ListBranches
-        {
-            get => _listBranches;
-            set => _listBranches = value;
-        }        
+        public List<Branch> ListBranches { get; set; } = new List<Branch>();
 
         /// <summary>
         /// AddBranch adds a just created branch in list of branch in its module.
@@ -44,30 +38,34 @@ namespace spreadsHeArc.ViewModel
         /// <param name="name">Name of new branch</param>
         /// <param name="weight">Weight of new branch in module</param>
         /// <param name="module">Module instance of branch</param>
-        public void AddBranch(string name, int weight, Module module)
+        public Branch AddBranch(string name, int weight, Module module)
         {
             Branch newBranch = new Branch(name, weight, module);
             ListBranches.Add(newBranch);
             try
-            {                                    
+            {                             
                 module.ListBranch.Add(newBranch);
             }
             catch (Exception)
             {
                 MessageBox.Show("Erreur : Aucun module n'est renseigné");
             }
+
+            return newBranch;
         }
 
         /// <summary>
         /// AddRating adds new rating instance in list of rates on appropriate branch.
         /// </summary>
         /// <param name="branch"></param>
-        /// <param name="rate"></param>
-        public void AddRating(Branch branch, Rating rate)
+        /// <param name="rating"></param>
+        public void AddRating(Branch branch, Rating rating)
         {
-            branch.ListRate.Add(rate);
+            int length = branch.ListRate.Count;
+            
+            branch.ListRate.Add(rating);            
             branch.ProcessAverage();
-            branch.Module.ProcessAverage();
+            branch.Module.ProcessAverage();            
         }
     }
 }

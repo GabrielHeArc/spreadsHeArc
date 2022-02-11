@@ -1,5 +1,6 @@
 ﻿using spreadsHeArc.Model;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace spreadsHeArc.ViewModel
@@ -14,7 +15,7 @@ namespace spreadsHeArc.ViewModel
         /// </summary>
         private ModuleViewModel()
         {
-            ListModules = new ObservableCollection<Module>();
+            //ListModules = new ObservableCollection<Module>();
         }
 
         public static ModuleViewModel GetInstance()
@@ -26,13 +27,28 @@ namespace spreadsHeArc.ViewModel
 
         private static ModuleViewModel _instance;
 
-        private ObservableCollection<Module> _listModules;
-        public ObservableCollection<Module> ListModules
+        public ObservableCollection<Module> ListModules { get; set; } = new ObservableCollection<Module>();
+
+        public Dictionary<string, Module> DictNameModule { get; set; } = new Dictionary<string, Module>();
+
+
+        public Module TryAdd(string nameModule)
         {
-            get => _listModules;
-            set => _listModules = value;
+            if(DictNameModule.ContainsKey(nameModule))
+            {
+                return DictNameModule[nameModule];
+            }
+            else
+            {
+                Module newModule = new Module(nameModule);
+                ListModules.Add(newModule);
+                DictNameModule.Add(nameModule, newModule);
+                return newModule;
+            }
         }
-        
+
+
+
         /// <summary>
         /// AddModule adds new module in list of all modules.
         /// </summary>

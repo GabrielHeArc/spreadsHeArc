@@ -47,11 +47,20 @@ namespace spreadsHeArc
             dialog.ShowDialog();
         }
 
-
         private void MenuItem_Click_Edit_Weight_Branch(object sender, RoutedEventArgs e)
         {
             var dialog = new EditBranchWeight();
             dialog.ShowDialog();
+        }
+
+        private void MenuItem_Click_Save_Data(object sender, RoutedEventArgs e)
+        {
+            Model.SaveData.Export();
+        }
+
+        private void MenuItem_Click_Import_Data(object sender, RoutedEventArgs e)
+        {
+            Model.SaveData.Import();
         }
     }
 }

@@ -69,8 +69,8 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
                 <MenuItem Header="_New" />
-                <MenuItem Header="_Open" />
-                <MenuItem Header="_Save" />
+                <MenuItem Header="_Open" Click="MenuItem_Click_Import_Data" />
+                <MenuItem Header="_Save" Click="MenuItem_Click_Save_Data" />
                 <Separator />
                 <MenuItem Header="_Exit" />
             </MenuItem>

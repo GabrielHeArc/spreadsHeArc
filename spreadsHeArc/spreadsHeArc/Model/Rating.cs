@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace spreadsHeArc.Model
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public class Rating : Model
     {
         /// <summary>
@@ -12,11 +14,12 @@ namespace spreadsHeArc.Model
         public Rating(float mark, int weight)
         {
             this.Mark = mark;
-
             this.WeightMark = weight;
         }
 
         private float _mark;
+
+        [JsonProperty]
         public float Mark
         {
             get => _mark;
@@ -32,16 +35,25 @@ namespace spreadsHeArc.Model
         }
 
         private int _weightMark;
+
+        [JsonProperty]
         public int WeightMark
         {
             get => _weightMark;
             set
             {
-                if (value <= 0)
+                if (value < 0)
                     throw new Exception("La pondération de la note doit être une valeur positive");
                 else
                     _weightMark = value;
             }
+        }
+
+        override
+        public string ToString()
+        {
+            return "Note = " + Mark + " Poids = " + WeightMark;
+            
         }
     }
 }
