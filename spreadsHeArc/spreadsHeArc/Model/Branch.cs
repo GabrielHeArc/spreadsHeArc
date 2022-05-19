@@ -12,12 +12,14 @@ namespace spreadsHeArc.Model
         /// </summary>
         /// <param name="name">Name of branch</param>
         /// <param name="weight">Weight of branch in module</param>
-        /// <param name="module">Module instannce of branch's module</param>
+        /// <param name="module">Module instance of branch's</param>
         public Branch(string name, int weight, Module module)
         {
             NameBranch = name;
             WeightBranch = weight;
-            Module = module;            
+            Module = module;
+            // init list rates of branch
+            ListRate = new ObservableCollection<Rating>();
         }
 
         private string _nameBranch;
@@ -47,6 +49,7 @@ namespace spreadsHeArc.Model
         }
 
         private float _averageBranch;
+
         public float AverageBranch
         {
             get => _averageBranch;
@@ -59,15 +62,21 @@ namespace spreadsHeArc.Model
 
         private Module _module;
 
-        //[JsonProperty]
+        [JsonProperty]
         public Module Module
         {
             get => _module;
             set => _module = value;
         }
 
+        private ObservableCollection<Rating> _listRate = new ObservableCollection<Rating>();
+
         [JsonProperty]
-        public ObservableCollection<Rating> ListRate { get; set; } = new ObservableCollection<Rating>();
+        public ObservableCollection<Rating> ListRate
+        {
+            get => _listRate;
+            set => _listRate = value;
+        }
 
         /// <summary>
         /// Process average for branch
@@ -76,10 +85,10 @@ namespace spreadsHeArc.Model
         {
             int sumWeight = 0;
             float sumMark = 0;
-            foreach (Rating rating in ListRate)
+            foreach (Rating rate in ListRate)
             {
-                sumWeight += rating.WeightMark;
-                sumMark += rating.Mark * rating.WeightMark;
+                sumWeight += rate.WeightMark;
+                sumMark += rate.Mark * rate.WeightMark;
             }
 
             AverageBranch = sumMark / sumWeight;

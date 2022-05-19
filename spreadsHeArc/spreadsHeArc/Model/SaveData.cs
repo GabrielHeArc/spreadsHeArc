@@ -3,10 +3,6 @@ using spreadsHeArc.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace spreadsHeArc.Model
 {
@@ -21,9 +17,11 @@ namespace spreadsHeArc.Model
             {
                 using (var jsonWriter = new JsonTextWriter(streamWriter))
                 {
-                    jsonString = JsonConvert.SerializeObject(ModuleViewModel.GetInstance().ListModules, Formatting.Indented);
-                    jsonWriter.Formatting = Formatting.Indented;                    
-                    serializer.Serialize(jsonWriter, JsonConvert.DeserializeObject(jsonString));
+                    {
+                        jsonString = JsonConvert.SerializeObject(BranchViewModel.GetInstance().ListBranches, Formatting.Indented);
+                        jsonWriter.Formatting = Formatting.Indented;
+                        serializer.Serialize(jsonWriter, JsonConvert.DeserializeObject(jsonString));
+                    }
                 }
             }
         }
@@ -34,48 +32,24 @@ namespace spreadsHeArc.Model
             {
                 using (var jsonReader = new JsonTextReader(streamReader))
                 {
-                    var modules = serializer.Deserialize<List<Module>>(jsonReader);
 
-                    foreach (var module in modules)
+                    var branches = serializer.Deserialize<List<Branch>>(jsonReader);
+                    foreach (var branch in branches)
                     {
-                        Module newModule = new Module(module.NameModule);
-                        ModuleViewModel.GetInstance().ListModules.Add(newModule);
+                        //Console.WriteLine(branch.Module.NameModule);
+                        Module newModule = new Module(branch.Module.NameModule);
+                        Branch newBranch = new Branch(branch.NameBranch, branch.WeightBranch, newModule);
 
-                        foreach (var branch in module.ListBranch)
+                        ModuleViewModel.GetInstance().ListModules.Add(newModule); //TODO assurer unicité module (ou pas ?)
+                        newModule.ListBranch.Add(newBranch);
+                        BranchViewModel.GetInstance().ListBranches.Add(newBranch);
+
+                        foreach (var rating in branch.ListRate)
                         {
-                            Branch newBranch = BranchViewModel.GetInstance().AddBranch(branch.NameBranch, branch.WeightBranch, newModule);
-                            
-
-                            foreach(var rating in branch.ListRate)
-                            {
-                                Rating newRating = new Rating(rating.Mark, rating.WeightMark);
-                                BranchViewModel.GetInstance().AddRating(newBranch, newRating);
-                            }
+                            Rating newRate = new Rating(rating.Mark, rating.WeightMark);
+                            BranchViewModel.GetInstance().AddRating(newBranch, newRate);
                         }
                     }
-
-
-
-
-                    //var branches = JsonConvert.DeserializeObject
-                    //List<Branch> branches = serializer.Deserialize<List<Branch>>(jsonReader);                    
-                    /*
-                    foreach (Branch branch in branches)
-                    {
-                        MessageBox.Show(branch.NameBranch);
-                        //Branch newBranch = new Branch(branch.NameBranch, branch.WeightBranch, branch.Module);
-                        //Module newModule = ModuleViewModel.GetInstance().TryAdd(newBranch.Module.NameModule);
-                        Module newModule = ModuleViewModel.GetInstance().TryAdd(branch.Module.NameModule);
-                        //BranchViewModel.GetInstance().AddBranch(newBranch.NameBranch, newBranch.WeightBranch, newModule);
-                        BranchViewModel.GetInstance().AddBranch(branch.NameBranch, branch.WeightBranch, newModule);                                               
-
-                        foreach (Rating rating in branch.ListRate)
-                        {
-                            MessageBox.Show(rating.ToString());
-                            Rating newRating = new Rating(rating.Mark, rating.WeightMark);
-                            BranchViewModel.GetInstance().AddRating(branch, newRating);
-                        }
-                    }*/
                 }
             }
         }

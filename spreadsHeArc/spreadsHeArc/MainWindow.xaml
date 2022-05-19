@@ -57,13 +57,13 @@
                         <Label FontWeight="SemiBold" FontSize="24" >Moyenne : </Label>
                         <Label FontWeight="Bold" FontSize="24" Content="{Binding AverageModule}"></Label>
                     </StackPanel>
-                        <Grid>
-                            <ItemsControl ItemsSource="{Binding ListBranch}" ItemTemplate="{DynamicResource DataTemplateBranche}"/>
-                        </Grid>
+                    <Grid>
+                        <ItemsControl ItemsSource="{Binding ListBranch}" ItemTemplate="{DynamicResource DataTemplateBranche}"/>
+                    </Grid>
                 </StackPanel>
             </Border>
         </DataTemplate>
-        
+
     </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
@@ -94,5 +94,5 @@
                     </Grid>
             </StackPanel>
         </ScrollViewer>
-    </DockPanel>    
+    </DockPanel>
 </Window>

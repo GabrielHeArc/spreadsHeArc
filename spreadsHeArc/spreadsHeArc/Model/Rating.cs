@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Windows;
 
 namespace spreadsHeArc.Model
 {
@@ -42,18 +43,12 @@ namespace spreadsHeArc.Model
             get => _weightMark;
             set
             {
-                if (value < 0)
-                    throw new Exception("La pondération de la note doit être une valeur positive");
+                /*if (value <= 0)
+                 * MessageBox.Show("Le poids de la note doit être supérieur à 0");
                 else
                     _weightMark = value;
+                */
             }
-        }
-
-        override
-        public string ToString()
-        {
-            return "Note = " + Mark + " Poids = " + WeightMark;
-            
         }
     }
 }

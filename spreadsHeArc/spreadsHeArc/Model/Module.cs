@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using System.Windows;
 
 namespace spreadsHeArc.Model
@@ -17,11 +18,12 @@ namespace spreadsHeArc.Model
         /// <param name="name">Name of module</param>
         public Module(string name)
         {
-            this.NameModule = name;            
+            this.NameModule = name;
+            ListBranch = new ObservableCollection<Branch>();
         }
 
         private string _nameModule;
-        
+
         [JsonProperty]
         public string NameModule
         {
@@ -44,8 +46,12 @@ namespace spreadsHeArc.Model
             }
         }
 
-        [JsonProperty]
-        public ObservableCollection<Branch> ListBranch { get; set; } = new ObservableCollection<Branch>();
+        private ObservableCollection<Branch> _listBranch;
+        public ObservableCollection<Branch> ListBranch
+        {
+            get => _listBranch;
+            set => _listBranch = value;
+        }
 
         public void ProcessAverage()
         {
@@ -57,7 +63,7 @@ namespace spreadsHeArc.Model
                 sumAverage += branch.AverageBranch * branch.WeightBranch;
             }
 
-            AverageModule = sumAverage / sumWeight;            
+            AverageModule = sumAverage / sumWeight;
         }
     }
 }
